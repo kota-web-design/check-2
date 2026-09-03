@@ -4,6 +4,7 @@ const siteHeader = document.querySelector(".site-header");
 const menuToggle = document.querySelector(".menu-toggle");
 const mobileMenu = document.querySelector(".mobile-menu");
 const mobileMenuLinks = document.querySelectorAll(".mobile-menu a");
+const currentNavLinks = document.querySelectorAll(".site-nav__link, .mobile-menu__link, .footer-links a");
 const placeholderForms = document.querySelectorAll("[data-form-placeholder]");
 
 document.documentElement.classList.add("js-enabled");
@@ -31,6 +32,45 @@ const updateHeaderState = () => {
   }
 
   siteHeader.classList.toggle("is-scrolled", window.scrollY > 24);
+};
+
+// Keep the active navigation underline aligned with the current page or section.
+const getPageName = (pathname) => pathname.split("/").pop() || "index.html";
+
+const isCurrentNavigationLink = (link) => {
+  const href = link.getAttribute("href");
+
+  if (!href) {
+    return false;
+  }
+
+  const linkUrl = new URL(href, window.location.href);
+  const currentPage = getPageName(window.location.pathname);
+  const linkPage = getPageName(linkUrl.pathname);
+
+  if (linkPage !== currentPage) {
+    return false;
+  }
+
+  if (currentPage === "company.html") {
+    return window.location.hash === "#access" ? linkUrl.hash === "#access" : linkUrl.hash !== "#access";
+  }
+
+  if (currentPage === "index.html") {
+    return linkUrl.hash === "" || linkUrl.hash === "#top";
+  }
+
+  return linkUrl.hash === "";
+};
+
+const updateCurrentNavigation = () => {
+  currentNavLinks.forEach((link) => {
+    if (isCurrentNavigationLink(link)) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
 };
 
 // Mobile menu state: visual class plus accessibility attributes.
@@ -117,8 +157,10 @@ if ("IntersectionObserver" in window) {
 
 // Header state and global event handlers.
 updateHeaderState();
+updateCurrentNavigation();
 setMobileMenuState(false);
 window.addEventListener("scroll", updateHeaderState, { passive: true });
+window.addEventListener("hashchange", updateCurrentNavigation);
 
 if (menuToggle) {
   menuToggle.addEventListener("click", toggleMobileMenu);

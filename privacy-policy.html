@@ -88,9 +88,12 @@
 
         <!-- Mobile hamburger button -->
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="メニューを開く">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span class="menu-toggle__lines" aria-hidden="true">
+            <span class="menu-toggle__line"></span>
+            <span class="menu-toggle__line"></span>
+            <span class="menu-toggle__line"></span>
+          </span>
+          <span class="menu-toggle__label" aria-hidden="true">MENU</span>
         </button>
       </div>
 
@@ -128,7 +131,6 @@
       <!-- Privacy Hero -->
       <section class="subpage-hero" aria-labelledby="privacy-title">
         <div class="section-inner subpage-hero__inner fade-up">
-          <p class="section-heading__label">Privacy Policy</p>
           <h1 class="subpage-hero__title" id="privacy-title">プライバシーポリシー</h1>
           <p class="subpage-hero__lead">
             お客さまに安心してご相談いただけるよう、個人情報の適切な管理に努めます。

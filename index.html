@@ -113,9 +113,12 @@
 
         <!-- Mobile hamburger button -->
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="メニューを開く">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span class="menu-toggle__lines" aria-hidden="true">
+            <span class="menu-toggle__line"></span>
+            <span class="menu-toggle__line"></span>
+            <span class="menu-toggle__line"></span>
+          </span>
+          <span class="menu-toggle__label" aria-hidden="true">MENU</span>
         </button>
       </div>
 
@@ -172,7 +175,7 @@
           <div class="section-heading fade-up">
             <p class="section-heading__label">Service</p>
             <h2 class="section-heading__title" id="service-title">
-              住まいから事業まで、幅広くサポート
+              住まいから事業まで、<br class="sp-only" />幅広くサポート
             </h2>
             <p class="section-heading__text">
               不動産の売買・賃貸だけでなく、管理・コンサルティング・民泊事業まで対応。<br />
@@ -183,10 +186,10 @@
           <!-- Service decoration -->
           <img
             class="service__tiger"
-            src="./assets/tiger_transparent.png"
+            src="./assets/tiger_lego.png"
             alt=""
-            width="166"
-            height="126"
+            width="622"
+            height="640"
             loading="lazy"
           />
 
@@ -345,7 +348,7 @@
 
                 <label class="property-form__field property-form__field--wide">
                   <span class="property-form__label">ふれんずのURL・物件番号</span>
-                  <input type="text" name="property_url" placeholder="ふれんずの物件URL、または物件番号をご入力ください" />
+                  <input type="text" name="property_url" placeholder="URLまたは物件番号" />
                 </label>
 
                 <label class="property-form__field property-form__field--wide">
@@ -361,7 +364,11 @@
                 </div>
                 <button class="property-form__submit" type="submit" aria-label="不動産のお問い合わせ内容を送信する">
                   内容を送信する
-                  <span aria-hidden="true">›</span>
+                  <span aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M9 6l6 6-6 6"></path>
+                    </svg>
+                  </span>
                 </button>
               </div>
               <p class="property-form__status" aria-live="polite" data-form-status></p>
@@ -372,16 +379,6 @@
 
       <!-- Lemon ITOSHIMA Section -->
       <section class="lemon section-pad" id="lemon" aria-labelledby="lemon-title">
-        <!-- Lemon decoration -->
-        <img
-          class="lemon__tiger"
-          src="./assets/tiger_2_transparent.png"
-          alt=""
-          width="128"
-          height="110"
-          loading="lazy"
-        />
-
         <div class="section-inner lemon__inner fade-up">
           <!-- Lemon heading and logo -->
           <p class="section-heading__label">Lemon ITOSHIMA</p>
@@ -421,23 +418,27 @@
             <div class="lemon-contact__body">
               <p class="lemon-contact__label">Contact</p>
               <h3 class="lemon-contact__title" id="lemon-contact-title">
-                檸檬糸島へのお問い合わせはLINEから
+                檸檬糸島のご予約・お問い合わせ
               </h3>
               <p class="lemon-contact__text">
-                <span>宿泊やパン作り体験についてのご質問は、</span>
-                <span>LINEからお気軽にお問い合わせください。</span>
+                <span>宿泊のご予約は外部予約サイトから。</span>
+                <span>ご質問はLINE、最新情報はInstagramでご確認ください。</span>
               </p>
             </div>
             <div class="lemon-contact__actions" aria-label="檸檬糸島の外部リンク">
               <a
-                class="lemon__button lemon__button--airbnb"
-                href="https://www.airbnb.jp/"
+                class="lemon__button lemon__button--booking"
+                href="https://vacation-stay.jp/"
                 target="_blank"
                 rel="noopener"
-                aria-label="檸檬糸島の予約サイトとしてAirbnb公式サイトを開く"
+                aria-label="檸檬糸島の宿泊予約サイトを開く"
               >
-                Airbnbで予約する
-                <span class="lemon__button-arrow" aria-hidden="true">›</span>
+                宿泊を予約する
+                <span class="lemon__button-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="M9 6l6 6-6 6"></path>
+                  </svg>
+                </span>
               </a>
               <a
                 class="lemon__button lemon__button--line"
@@ -446,9 +447,7 @@
                 rel="noopener"
                 aria-label="LINEで檸檬糸島について問い合わせる"
               >
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path d="M5.2 17.1c-1.8-1.4-2.8-3.3-2.8-5.4 0-4.3 4.3-7.8 9.6-7.8s9.6 3.5 9.6 7.8-4.3 7.8-9.6 7.8c-.8 0-1.6-.1-2.3-.2L5.5 21l.9-3.1c-.4-.2-.8-.5-1.2-.8Z" />
-                </svg>
+                <img class="lemon__button-icon" src="./assets/line-brand-icon.png" alt="" width="40" height="40" loading="lazy" />
                 LINEで問い合わせる
               </a>
               <a
@@ -458,14 +457,19 @@
                 rel="noopener"
                 aria-label="檸檬糸島のInstagramを見る"
               >
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <rect x="4.5" y="4.5" width="15" height="15" rx="4.2" />
-                  <circle cx="12" cy="12" r="3.7" />
-                  <path d="M16.8 7.4h.1" />
-                </svg>
+                <img class="lemon__button-icon" src="./assets/instagram-brand-icon.svg" alt="" width="40" height="40" loading="lazy" />
                 Instagramを見る
               </a>
             </div>
+            <!-- Lemon contact decoration -->
+            <img
+              class="lemon__tiger"
+              src="./assets/tiger_lego.png"
+              alt=""
+              width="622"
+              height="640"
+              loading="lazy"
+            />
           </section>
         </div>
       </section>
