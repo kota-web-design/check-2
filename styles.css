@@ -196,7 +196,7 @@ textarea:focus-visible {
 .site-nav__link::after {
   position: absolute;
   right: 0;
-  bottom: 4px;
+  bottom: 8px;
   left: 0;
   height: 2px;
   border-radius: 999px;
@@ -350,16 +350,6 @@ textarea:focus-visible {
   max-width: 780px;
   margin-inline: auto;
   text-align: center;
-}
-
-.section-heading__label {
-  margin: 0 0 10px;
-  color: var(--color-blue);
-  font-family: var(--font-serif);
-  font-size: 0.86rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 .section-heading__title {
@@ -521,16 +511,6 @@ textarea:focus-visible {
   max-width: 700px;
   margin: 0 auto 30px;
   text-align: center;
-}
-
-.property-contact__label {
-  margin: 0 0 6px;
-  color: var(--color-blue);
-  font-family: var(--font-serif);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 .property-contact__title {
@@ -871,16 +851,6 @@ textarea:focus-visible {
   box-shadow: var(--shadow-soft);
 }
 
-.lemon-contact__label {
-  margin: 0 0 6px;
-  color: var(--color-blue);
-  font-family: var(--font-serif);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .lemon-contact__title {
   margin: 0;
   color: #182036;
@@ -909,6 +879,7 @@ textarea:focus-visible {
 
 .lemon-contact__actions .lemon__button {
   width: calc((100% - 28px) / 3);
+  display: inline-flex;
   min-width: 0;
   padding-inline: 16px;
   gap: 10px;
@@ -987,6 +958,16 @@ textarea:focus-visible {
   flex: 0 0 auto;
 }
 
+.lemon__button-text {
+  min-width: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.lemon__button-spacer {
+  display: none;
+}
+
 .lemon__button svg {
   width: 20px;
   height: 20px;
@@ -1044,7 +1025,7 @@ textarea:focus-visible {
 }
 
 .subpage-hero {
-  padding-block: clamp(78px, 10vw, 118px) clamp(48px, 7vw, 76px);
+  padding-block: clamp(70px, 9vw, 108px) clamp(28px, 4vw, 46px);
   background: linear-gradient(180deg, rgba(14, 144, 253, 0.12), rgba(255, 255, 255, 0.94));
 }
 
@@ -1070,6 +1051,26 @@ textarea:focus-visible {
 
 .subpage-section {
   padding-block: clamp(56px, 8vw, 92px);
+}
+
+.subpage-hero + .subpage-section {
+  padding-top: clamp(24px, 3.5vw, 42px);
+}
+
+.subpage-section--policy {
+  padding-top: clamp(16px, 2.6vw, 30px);
+}
+
+.subpage-section--company-profile {
+  padding-bottom: clamp(38px, 5vw, 58px);
+}
+
+.subpage-section--access {
+  padding-top: clamp(30px, 4vw, 48px);
+}
+
+.subpage-section--access .section-heading {
+  margin-bottom: clamp(24px, 3vw, 34px);
 }
 
 .content-panel {
@@ -1173,9 +1174,7 @@ textarea:focus-visible {
 }
 
 .access-link {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
+  text-decoration: none;
 }
 
 .map-embed {
@@ -1195,6 +1194,7 @@ textarea:focus-visible {
 .policy-content {
   max-width: 900px;
   margin-inline: auto;
+  padding: clamp(24px, 4vw, 42px) clamp(22px, 4.4vw, 48px);
 }
 
 .policy-content p {
@@ -1208,7 +1208,7 @@ textarea:focus-visible {
 }
 
 .policy-content h2 {
-  margin: 42px 0 14px;
+  margin: 34px 0 12px;
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(14, 144, 253, 0.18);
   color: var(--color-navy);
@@ -1218,7 +1218,7 @@ textarea:focus-visible {
 }
 
 .policy-content h2:first-of-type {
-  margin-top: 34px;
+  margin-top: 26px;
 }
 
 /* =========================================================
@@ -1311,9 +1311,10 @@ textarea:focus-visible {
 .footer-links a::after {
   position: absolute;
   right: 0;
-  bottom: -4px;
+  bottom: -2px;
   left: 0;
-  height: 1px;
+  height: 2px;
+  border-radius: 999px;
   background: currentColor;
   content: "";
   opacity: 0;
@@ -1592,11 +1593,6 @@ textarea:focus-visible {
     max-width: 340px;
   }
 
-  .section-heading__label {
-    margin-bottom: 8px;
-    font-size: 0.76rem;
-  }
-
   .section-heading__title {
     font-size: clamp(1.54rem, 6.8vw, 2.08rem);
     line-height: 1.5;
@@ -1686,10 +1682,6 @@ textarea:focus-visible {
     margin-bottom: 22px;
   }
 
-  .property-contact__label {
-    font-size: 0.72rem;
-  }
-
   .property-contact__title {
     font-size: clamp(1.24rem, 6vw, 1.52rem);
   }
@@ -1765,9 +1757,13 @@ textarea:focus-visible {
   }
 
   .lemon__features span {
+    display: inline-grid;
     width: 100%;
     min-height: 44px;
     min-width: 0;
+    grid-template-columns: 6px minmax(11.5em, 11.5em);
+    gap: 10px;
+    text-align: left;
   }
 
   .lemon-contact {
@@ -1793,10 +1789,24 @@ textarea:focus-visible {
 
   .lemon-contact__actions .lemon__button,
   .lemon__button {
+    display: grid;
     width: 100%;
+    grid-template-columns: 32px minmax(0, 1fr) 32px;
     min-height: 56px;
-    padding-inline: 18px;
+    padding-inline: 16px;
     font-size: 0.94rem;
+  }
+
+  .lemon__button-icon,
+  .lemon__button-arrow,
+  .lemon__button-spacer {
+    justify-self: center;
+  }
+
+  .lemon__button-spacer {
+    display: block;
+    width: 28px;
+    height: 28px;
   }
 
   .lemon__tiger {
@@ -1827,6 +1837,18 @@ textarea:focus-visible {
 
   .subpage-section {
     padding-block: 38px 46px;
+  }
+
+  .subpage-section--company-profile {
+    padding-bottom: 34px;
+  }
+
+  .subpage-section--access {
+    padding-top: 34px;
+  }
+
+  .subpage-section--access .section-heading {
+    margin-bottom: 22px;
   }
 
   .content-panel {
@@ -1900,6 +1922,7 @@ textarea:focus-visible {
   }
 
   .policy-content {
+    padding: 22px 18px 26px;
     font-size: 0.92rem;
   }
 
@@ -1914,7 +1937,7 @@ textarea:focus-visible {
   }
 
   .policy-content h2:first-of-type {
-    margin-top: 30px;
+    margin-top: 24px;
   }
 
   .site-footer__inner {
@@ -1974,6 +1997,7 @@ textarea:focus-visible {
     width: 100%;
     max-width: 320px;
     min-height: 58px;
+    margin-inline: auto;
     border-radius: 999px;
     background: rgba(8, 31, 82, 0.18);
     box-shadow: 0 12px 24px rgba(8, 31, 82, 0.16);
@@ -2009,6 +2033,10 @@ textarea:focus-visible {
   .property-contact__text span,
   .lemon-contact__text span {
     display: inline;
+  }
+
+  .lemon-contact__text span {
+    display: block;
   }
 
   .property-form input,
