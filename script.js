@@ -57,7 +57,8 @@ const isCurrentNavigationLink = (link) => {
   }
 
   if (currentPage === "index.html") {
-    return linkUrl.hash === "" || linkUrl.hash === "#top";
+    const currentHash = window.location.hash || "#top";
+    return linkUrl.hash === currentHash || (currentHash === "#top" && linkUrl.hash === "");
   }
 
   return linkUrl.hash === "";
