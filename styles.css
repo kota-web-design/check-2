@@ -1623,7 +1623,7 @@ textarea:focus-visible {
 
   .hero {
     min-height: 100vh;
-    min-height: 100svh;
+    min-height: 100lvh;
     background-image: url("./assets/FV_sp.png");
     background-position: center top;
   }
