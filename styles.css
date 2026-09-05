@@ -48,6 +48,7 @@ body {
   background: #fff;
   font-family: var(--font-sans);
   line-height: 1.8;
+  overflow-x: hidden;
 }
 
 img,
@@ -1016,10 +1017,10 @@ textarea:focus-visible {
 
 .lemon__tiger {
   position: absolute;
-  right: clamp(-114px, -7.8vw, -82px);
-  bottom: -4px;
-  z-index: 1;
-  width: clamp(96px, 9vw, 132px);
+  right: clamp(-64px, -4.2vw, -46px);
+  bottom: 6px;
+  z-index: 2;
+  width: clamp(102px, 7.8vw, 124px);
   height: auto;
   object-fit: contain;
   opacity: 0.94;
@@ -1473,14 +1474,16 @@ textarea:focus-visible {
   }
 
   .site-header__inner {
-    width: min(calc(100% - 28px), 1180px);
+    width: calc(100% - 28px);
+    max-width: 1180px;
     min-height: 70px;
     grid-template-columns: 1fr auto;
     gap: 12px;
   }
 
   .brand__logo {
-    width: min(246px, 70vw);
+    width: 246px;
+    max-width: calc(100vw - 100px);
   }
 
   .site-nav--desktop,
@@ -1851,8 +1854,9 @@ textarea:focus-visible {
 
   .lemon-contact {
     margin-top: 28px;
-    margin-bottom: 76px;
-    padding: 24px 16px;
+    margin-bottom: 42px;
+    overflow: visible;
+    padding: 24px 16px 48px;
     border-radius: 14px;
   }
 
@@ -1894,10 +1898,11 @@ textarea:focus-visible {
   }
 
   .lemon__tiger {
-    right: 4px;
-    bottom: -82px;
-    width: 82px;
-    opacity: 0.9;
+    right: -8px;
+    bottom: 10px;
+    z-index: 2;
+    width: clamp(72px, 20vw, 82px);
+    opacity: 0.94;
   }
 
   .subpage-main {
@@ -2129,15 +2134,22 @@ textarea:focus-visible {
 
 @media (max-width: 520px) {
   .hero {
-    min-height: 920px;
-    min-height: max(100lvh, clamp(860px, 234vw, 920px));
-    background-size: auto 1000px;
+    min-height: 880px;
+    background-size: auto 980px;
+  }
+}
+
+@media (max-width: 520px) and (min-height: 880px) {
+  .hero {
+    min-height: 100vh;
+    min-height: 100svh;
   }
 }
 
 @media (max-width: 430px) {
   .brand__logo {
-    width: min(230px, 68vw);
+    width: 230px;
+    max-width: calc(100vw - 100px);
   }
 
   .hero__inner {
