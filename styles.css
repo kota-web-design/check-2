@@ -1622,8 +1622,8 @@ textarea:focus-visible {
   }
 
   .hero {
-    min-height: 88vh;
-    min-height: 88svh;
+    min-height: 100vh;
+    min-height: 100svh;
     background-image: url("./assets/FV_sp.png");
     background-position: center top;
   }
@@ -1839,8 +1839,9 @@ textarea:focus-visible {
     min-height: 44px;
     min-width: 0;
     max-width: none;
-    grid-template-columns: 7px max-content;
+    grid-template-columns: 7px minmax(0, 11em);
     justify-content: center;
+    justify-items: start;
     gap: 10px;
     font-size: 1rem;
     text-align: left;
